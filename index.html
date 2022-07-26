@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./index.js"></script>
+    <title>Apptimum Labs - Portfolios </title>
+</head>
+
+<body>
+
+    <!-- ----------------------------------------- HEADER ----------------------------------------- -->
+
+    <div class="image-class">
+
+        <div class="banner" role="banner">
+
+            <div class="text-box">
+
+                <h1>Portfolio — Web </h1>
+
+                <p>Apptimumlabs</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ----------------------------------------- DOWN ARROW ----------------------------------------- -->
+
+    <a href="#down">
+
+        <div class="arrow">
+            <i class="fa fa-angle-down" style="font-size:50px; width: 20px;"></i>
+        </div>
+
+    </a>
+
+    <!-- ----------------------------------------- PROJECTS GALLERY ----------------------------------------- -->
+
+    <div id="down">
+
+        <section class="projects">
+
+            <p>Projects</p>
+
+            <div class="container">
+
+                <div class="box">
+                    <div tabindex="1" class="image-box"><img class="image-class" src="./images/Web1.webp"
+                            onclick="openLightbox();toSlide(1)" alt="Project-1">
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div tabindex="1" class="image-box"><img class="image-class" src="./images/Web 2.webp"
+                            onclick="openLightbox();toSlide(2)" alt="Project-2">
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div tabindex="1" class="image-box"><img class="image-class" src="./images/Web 3.webp"
+                            onclick="openLightbox();toSlide(3)" alt="Project-3">
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div tabindex="1" class="image-box"><img class="image-class" src="./images/Web 4.webp"
+                            onclick="openLightbox();toSlide(4)" alt="Project-4">
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div tabindex="1" class="image-box"><img class="image-class" src="./images/Web 5.webp"
+                            onclick="openLightbox();toSlide(5)" alt="Project-5">
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div tabindex="1" class="image-box"><img class="image-class" src="./images/Web 6.webp"
+                            onclick="openLightbox();toSlide(6)" alt="Project-6">
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="Lightbox" class="modal">
+
+                <span class="close pointer" style="position: fixed;" onclick="closeLightbox()">&times;</span>
+
+                <div class="modal-content light-box">
+
+                    <div class="slide">
+                        <img src="./images/Web1.webp" class="image-slide" alt="Toy car on the road." />
+                    </div>
+
+                    <div class="slide">
+                        <img src="./images/Web 2.webp" class="image-slide" alt="Toy car on the road." />
+                    </div>
+
+                    <div class="slide">
+                        <img src="./images/Web 3.webp" class="image-slide" alt="Toy car on the road." />
+                    </div>
+
+                    <div class="slide">
+                        <img src="./images/Web 4.webp" class="image-slide" alt="Toy car on the road." />
+                    </div>
+
+                    <div class="slide">
+                        <img src="./images/Web 5.webp" class="image-slide" alt="Toy car on the road." />
+                    </div>
+
+                    <div class="slide">
+                        <img src="./images/Web 6.webp" class="image-slide" alt="Toy car on the road." />
+                    </div>
+
+                </div>
+
+            </div>
+
+            <script>
+
+                const body = document.querySelector("body")
+
+                let slideIndex = 1
+                showSlide(slideIndex);
+
+                function openLightbox() {
+                    document.getElementById('Lightbox').style.display = 'block';
+                    body.style.overflow = "hidden"
+                };
+
+                function closeLightbox() {
+                    document.getElementById('Lightbox').style.display = 'none';
+                    body.style.overflow = "auto"
+
+                };
+
+                function toSlide(n) {
+                    showSlide(slideIndex = n);
+                };
+
+                function showSlide(n) {
+                    const slides = document.getElementsByClassName('slide');
+                    let modalPreviews = document.getElementsByClassName('modal-preview');
+
+                    if (n > slides.length) {
+                        slideIndex = 1;
+                    };
+
+                    if (n < 1) {
+                        slideIndex = slides.length;
+                    };
+
+                    for (let i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    };
+
+                    for (let i = 0; i < modalPreviews.length; i++) {
+                        modalPreviews[i].className = modalPreviews[i].className.replace(' active', '');
+                    };
+
+                    slides[slideIndex - 1].style.display = 'block';
+                    modalPreviews[slideIndex - 1].className += ' active';
+                };
+
+            </script>
+
+        </section>
+
+    </div>
+
+</body>
+
+</html>
